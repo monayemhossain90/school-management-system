@@ -1,0 +1,234 @@
+import React from 'react';
+import styled, { keyframes } from 'styled-components';
+import { useSelector } from 'react-redux';
+
+const TeacherProfile = () => {
+  const { currentUser, response, error } = useSelector((state) => state.user);
+
+  if (response) { console.log(response) }
+  else if (error) { console.log(error) }
+
+  const teachSclass = currentUser.teachSclass;
+  const teachSubject = currentUser.teachSubject;
+  const teachSchool = currentUser.school;
+
+  const profileFields = [
+    { label: 'Full Name', value: currentUser.name, icon: '👤' },
+    { label: 'Email Address', value: currentUser.email, icon: '📧' },
+    { label: 'Teaching Class', value: teachSclass?.sclassName, icon: '🎓' },
+    { label: 'Subject', value: teachSubject?.subName, icon: '📚' },
+    { label: 'School', value: teachSchool?.schoolName, icon: '🏫' },
+  ];
+
+  return (
+    <PageWrapper>
+      <ProfileCard>
+        <AvatarSection>
+          <Avatar>
+            {String(currentUser.name).charAt(0).toUpperCase()}
+          </Avatar>
+          <RoleBadge>Teacher</RoleBadge>
+        </AvatarSection>
+
+        <ProfileHeader>
+          <ProfileName>{currentUser.name}</ProfileName>
+          <ProfileSubject>{teachSubject?.subName} Teacher</ProfileSubject>
+        </ProfileHeader>
+
+        <Divider />
+
+        <ProfileDetails>
+          {profileFields.map((field, index) => (
+            <DetailItem key={field.label} $delay={index * 0.1}>
+              <DetailIcon>{field.icon}</DetailIcon>
+              <DetailContent>
+                <DetailLabel>{field.label}</DetailLabel>
+                <DetailValue>{field.value}</DetailValue>
+              </DetailContent>
+            </DetailItem>
+          ))}
+        </ProfileDetails>
+
+        <StatsGrid>
+          <StatItem>
+            <StatValue>Active</StatValue>
+            <StatLabel>Account Status</StatLabel>
+          </StatItem>
+          <StatItem>
+            <StatValue>Teacher Access</StatValue>
+            <StatLabel>Permission Level</StatLabel>
+          </StatItem>
+        </StatsGrid>
+      </ProfileCard>
+    </PageWrapper>
+  )
+}
+
+export default TeacherProfile;
+
+// Animations
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+// Styled Components
+const PageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  animation: ${fadeInUp} 0.5s ease forwards;
+`;
+
+const ProfileCard = styled.div`
+  width: 100%;
+  max-width: 600px;
+  background: rgba(30, 30, 60, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 40px;
+`;
+
+const AvatarSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+`;
+
+const Avatar = styled.div`
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 12px 30px rgba(245, 158, 11, 0.3);
+  margin-bottom: 16px;
+`;
+
+const RoleBadge = styled.span`
+  padding: 6px 16px;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(251, 191, 36, 0.15) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 20px;
+  color: #fbbf24;
+  font-size: 0.875rem;
+  font-weight: 600;
+`;
+
+const ProfileHeader = styled.div`
+  text-align: center;
+  margin-bottom: 24px;
+`;
+
+const ProfileName = styled.h1`
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 4px;
+`;
+
+const ProfileSubject = styled.p`
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+`;
+
+const Divider = styled.div`
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  margin-bottom: 24px;
+`;
+
+const ProfileDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+`;
+
+const DetailItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  animation: ${fadeInUp} 0.5s ease forwards;
+  animation-delay: ${props => props.$delay}s;
+  opacity: 0;
+  
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+`;
+
+const DetailIcon = styled.span`
+  font-size: 1.5rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(245, 158, 11, 0.1);
+  border-radius: 12px;
+`;
+
+const DetailContent = styled.div`
+  flex: 1;
+`;
+
+const DetailLabel = styled.p`
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+`;
+
+const DetailValue = styled.p`
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+`;
+
+const StatsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+`;
+
+const StatItem = styled.div`
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(251, 191, 36, 0.1) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 16px;
+`;
+
+const StatValue = styled.p`
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fbbf24;
+  margin-bottom: 4px;
+`;
+
+const StatLabel = styled.p`
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+`;
