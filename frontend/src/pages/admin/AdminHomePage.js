@@ -91,7 +91,7 @@ const AdminHomePage = () => {
       icon: Fees,
       title: 'Fee Collection',
       value: feeSummary?.totalPaid || 0,
-      prefix: '₹',
+      prefix: 'tk ',
       gradient: 'linear-gradient(135deg, #ec4899 0%, #f472b6 100%)',
       shadowColor: 'rgba(236, 72, 153, 0.3)',
     },

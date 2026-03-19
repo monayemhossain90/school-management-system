@@ -48,8 +48,8 @@ const ShowFees = () => {
         return {
             studentName: fee.student?.name || 'Unknown',
             feeType: fee.feeType,
-            amount: `₹${fee.amount}`,
-            paidAmount: `₹${fee.paidAmount || 0}`,
+            amount: `${fee.amount} tk`,
+            paidAmount: `${fee.paidAmount || 0} tk`,
             status: fee.status,
             dueDate: dateString,
             id: fee._id,

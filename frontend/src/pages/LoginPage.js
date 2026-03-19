@@ -21,7 +21,7 @@ import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  Button, Grid, Box, Typography, Checkbox, FormControlLabel,
+  Button, Grid, Checkbox, FormControlLabel,
   TextField, IconButton, InputAdornment, CircularProgress, Backdrop
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';

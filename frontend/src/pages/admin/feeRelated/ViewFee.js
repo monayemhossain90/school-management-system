@@ -131,7 +131,7 @@ const ViewFee = () => {
           </InfoItem>
           <InfoItem>
             <InfoLabel>Total Amount</InfoLabel>
-            <InfoValue highlight>₹{fee.amount}</InfoValue>
+            <InfoValue highlight>tk {fee.amount}</InfoValue>
           </InfoItem>
           <InfoItem>
             <InfoLabel>Due Date</InfoLabel>

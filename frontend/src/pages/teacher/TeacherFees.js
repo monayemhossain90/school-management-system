@@ -250,7 +250,7 @@ const TeacherFees = () => {
               </StyledTextField>
               <StyledTextField
                 fullWidth
-                label="Amount (₹)"
+                label="Amount (tk)"
                 type="number"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
@@ -258,7 +258,7 @@ const TeacherFees = () => {
               />
               <StyledTextField
                 fullWidth
-                label="Paid Amount (₹)"
+                label="Paid Amount (tk)"
                 type="number"
                 value={paidAmount}
                 onChange={(e) => setPaidAmount(e.target.value)}
@@ -317,8 +317,8 @@ const TeacherFees = () => {
                 <StudentName>{getStudentName(fee.student)}</StudentName>
               </TableCell>
               <TableCell>{fee.feeType}</TableCell>
-              <TableCell>₹{fee.amount?.toLocaleString()}</TableCell>
-              <TableCell>₹{(fee.paidAmount || 0).toLocaleString()}</TableCell>
+              <TableCell>tk {fee.amount?.toLocaleString()}</TableCell>
+              <TableCell>tk {(fee.paidAmount || 0).toLocaleString()}</TableCell>
               <TableCell>{formatDate(fee.dueDate)}</TableCell>
               <TableCell>
                 <StatusBadge $status={fee.status}>

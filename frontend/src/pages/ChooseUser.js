@@ -36,7 +36,7 @@ const ChooseUser = ({ visitor }) => {
   const navigate = useNavigate();
 
   // Demo password for guest mode login
-  const password = "zxc";
+  const password = "123456";
 
   // Extract user authentication state from Redux
   const { status, currentUser, currentRole } = useSelector(state => state.user);
@@ -58,7 +58,7 @@ const ChooseUser = ({ visitor }) => {
     if (user === "Admin") {
       if (visitor === "guest") {
         // Guest mode: auto-login with admin demo credentials
-        const email = "yogendra@12";
+        const email = "monayemhossain347@gmail.com";
         const fields = { email, password };
         setLoader(true);
         dispatch(loginUser(fields, user));
@@ -68,8 +68,8 @@ const ChooseUser = ({ visitor }) => {
     } else if (user === "Student") {
       if (visitor === "guest") {
         // Guest mode: auto-login with student demo credentials
-        const rollNum = "1";
-        const studentName = "Dipesh Awasthi";
+        const rollNum = "4";
+        const studentName = "Faiza";
         const fields = { rollNum, studentName, password };
         setLoader(true);
         dispatch(loginUser(fields, user));
@@ -79,7 +79,7 @@ const ChooseUser = ({ visitor }) => {
     } else if (user === "Teacher") {
       if (visitor === "guest") {
         // Guest mode: auto-login with teacher demo credentials
-        const email = "tony@12";
+        const email = "akbar@gmail.com";
         const fields = { email, password };
         setLoader(true);
         dispatch(loginUser(fields, user));
