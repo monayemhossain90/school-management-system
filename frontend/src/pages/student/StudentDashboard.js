@@ -62,7 +62,7 @@ const StudentDashboard = () => {
                     <DrawerHeader>
                         <LogoSection>
                             <LogoIcon>📚</LogoIcon>
-                            {open && <LogoText $color="#10b981">Shishu Niketan</LogoText>}
+                            {open && <LogoText $color="#10b981">EduStudent</LogoText>}
                         </LogoSection>
                         <IconButton onClick={toggleDrawer} sx={{ color: 'rgba(255,255,255,0.7)' }}>
                             <ChevronLeftIcon />

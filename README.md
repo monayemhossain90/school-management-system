@@ -71,7 +71,7 @@ npm install
 1. Before start frontend  Navigate to the `frontend > .env` file.
   if .env not found please create it.
 
-2. add this in .env file  REACT_APP_BASE_URL=[backend url here]
+2. add this in .env file  REACT_APP_BASE_URL=http://localhost:5000/api
 
 Then start the frontend
 ```sh
