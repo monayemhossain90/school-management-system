@@ -68,8 +68,8 @@ const ChooseUser = ({ visitor }) => {
     } else if (user === "Student") {
       if (visitor === "guest") {
         // Guest mode: auto-login with student demo credentials
-        const rollNum = "4";
-        const studentName = "Faiza";
+        const rollNum = "2";
+        const studentName = "taha";
         const fields = { rollNum, studentName, password };
         setLoader(true);
         dispatch(loginUser(fields, user));
@@ -79,7 +79,7 @@ const ChooseUser = ({ visitor }) => {
     } else if (user === "Teacher") {
       if (visitor === "guest") {
         // Guest mode: auto-login with teacher demo credentials
-        const email = "akbar@gmail.com";
+        const email = "meshkat@gmail.com";
         const fields = { email, password };
         setLoader(true);
         dispatch(loginUser(fields, user));

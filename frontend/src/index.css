@@ -491,6 +491,12 @@ a:hover {
   color: var(--text-muted);
 }
 
+/* Fix select dropdown text visibility */
+.registerInput option {
+  color: #000;
+  background-color: #fff;
+}
+
 .registerButton {
   margin-top: 1rem;
   padding: 14px 24px;
