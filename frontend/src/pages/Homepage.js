@@ -61,7 +61,7 @@ const Homepage = () => {
                 </StyledLink>
                 <StyledLink to="/chooseasguest">
                   <SecondaryButton variant="outlined" fullWidth>
-                    Explore as Guest
+                    Explore as Demo Login
                   </SecondaryButton>
                 </StyledLink>
               </ButtonGroup>
