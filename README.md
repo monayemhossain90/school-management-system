@@ -3,11 +3,12 @@
 </h1>
 
 <h3 align="center">
-Streamline school management, class organization, and add students and faculty.<br>
-Seamlessly track attendance, assess performance, and provide feedback. <br>
-Access records, view marks, and communicate effortlessly.
+School Management Application
 </h3>
 
+<h3 align="center">
+Live Link https://school-management-system-a7k1.vercel.app/
+</h3>
 <br>
 [LinkedIn](https://www.linkedin.com/in/monayem-hossain/)
 
